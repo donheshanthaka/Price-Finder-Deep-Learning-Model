@@ -22,7 +22,7 @@ def download_image(url, folder_name, num):
 chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
 driver = webdriver.Chrome(chromeDriverPath)
 
-search_URL = "https://www.google.lk/search?q=suzuki+wagon+r+stingray+2018+japan&tbm=isch&ved=2ahUKEwjRhLj9uPX3AhVP_TgGHY1VAisQ2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2018+japan&gs_lcp=CgNpbWcQAzIECAAQGDoECAAQQzoFCAAQgAQ6BAgAEB5Q2AZY8wxg3g5oAHAAeACAAawBiAHbB5IBAzAuN5gBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=KmaLYtHHHs_64-EPjauJ2AI&bih=937&biw=1920&hl=en"
+search_URL = "https://www.google.lk/search?q=suzuki+wagon+r+stingray+2018&tbm=isch&ved=2ahUKEwjSzZC5uPX3AhXqgGMGHfubDo8Q2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2018&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYOgQIABBDUKgHWN4KYMcMaABwAHgAgAGdAYgBtAOSAQMwLjOYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=m2WLYpKUD-qBjuMP-7e6-Ag&bih=937&biw=1920"
 
 driver.get(search_URL)
 
