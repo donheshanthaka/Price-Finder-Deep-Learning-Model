@@ -22,7 +22,7 @@ def download_image(url, folder_name, num):
 chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
 driver = webdriver.Chrome(chromeDriverPath)
 
-search_URL = "https://www.google.lk/search?q=suzuki+wagon+r+stingray+2018&tbm=isch&ved=2ahUKEwjSzZC5uPX3AhXqgGMGHfubDo8Q2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2018&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYOgQIABBDUKgHWN4KYMcMaABwAHgAgAGdAYgBtAOSAQMwLjOYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=m2WLYpKUD-qBjuMP-7e6-Ag&bih=937&biw=1920"
+search_URL = "https://www.google.lk/search?q=suzuki+wagon+r+stingray+2017&tbm=isch&ved=2ahUKEwj7lY-526L4AhWOk9gFHZonCokQ2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2017&gs_lcp=CgNpbWcQAzIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEENQ9wpYxxZg1xhoAHAAeACAAZYDiAGyBZIBBzAuMi40LTGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=GiKjYvugKo6n4t4Pms-oyAg&bih=937&biw=1920"
 
 driver.get(search_URL)
 
@@ -51,9 +51,14 @@ for i in range(1, len_containers+1):
     
     xPath = """//*[@id="islrg"]/div[1]/div[%s]"""%(i)
     
+    # try block is used to catch exceptions occured in some images not having the XPath below, those images are skipped through continue
+    try:
     # Grabbing the URL of the small preview image
-    previewImageXPath = """//*[@id="islrg"]/div[1]/div[%s]/a[1]/div[1]/img"""%(i)
-    previewImageElement = driver.find_element_by_xpath(previewImageXPath)
+        previewImageXPath = """//*[@id="islrg"]/div[1]/div[%s]/a[1]/div[1]/img"""%(i)
+        previewImageElement = driver.find_element_by_xpath(previewImageXPath)
+    except:
+        continue
+    
     previewImageURL = previewImageElement.get_attribute("src")
     #print("preview URL", previewImageURL)
 
