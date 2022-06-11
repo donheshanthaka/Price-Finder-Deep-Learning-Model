@@ -6,7 +6,7 @@ import time
 
 
 #creating a directory to save images
-folder_name = 'images'
+folder_name = 'images\\alto 05'
 if not os.path.isdir(folder_name):
     os.makedirs(folder_name)
 
@@ -22,7 +22,7 @@ def download_image(url, folder_name, num):
 chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
 driver = webdriver.Chrome(chromeDriverPath)
 
-search_URL = "https://www.google.lk/search?q=suzuki+wagon+r+stingray+2017&tbm=isch&ved=2ahUKEwj7lY-526L4AhWOk9gFHZonCokQ2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2017&gs_lcp=CgNpbWcQAzIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEENQ9wpYxxZg1xhoAHAAeACAAZYDiAGyBZIBBzAuMi40LTGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=GiKjYvugKo6n4t4Pms-oyAg&bih=937&biw=1920"
+search_URL = "https://www.google.lk/search?q=maruti+suzuki+alto+800+2015+sri+lanka&tbm=isch&ved=2ahUKEwi1sMzsh6X4AhWvBbcAHRNRCOgQ2-cCegQIABAA&oq=maruti+suzuki+alto+800+2015+sri+lanka&gs_lcp=CgNpbWcQA1DzDVixGGCGG2gAcAB4AIABhAOIAbULkgEHMC45LjAuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=GV2kYvW_Ea-L3LUPk6KhwA4&bih=937&biw=1920"
 
 driver.get(search_URL)
 
@@ -70,8 +70,12 @@ for i in range(1, len_containers+1):
     timeStarted = time.time()
 
     while True:
-
-        imageElement = driver.find_element_by_xpath("""//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[3]/div/a/img""")
+        # try block is used to catch exceptions occured in some images not having the XPath below, those images are skipped through continue
+        try: 
+            imageElement = driver.find_element_by_xpath("""//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[3]/div/a/img""")
+        except:
+            continue
+        
         imageURL= imageElement.get_attribute('src')
 
 
@@ -99,3 +103,8 @@ for i in range(1, len_containers+1):
 
 driver.quit()
 
+# Wangon R Stingray
+# https://www.google.lk/search?q=suzuki+wagon+r+stingray+2018+japan&tbm=isch&ved=2ahUKEwjRhLj9uPX3AhVP_TgGHY1VAisQ2-cCegQIABAA&oq=suzuki+wagon+r+stingray+2018+japan&gs_lcp=CgNpbWcQAzIECAAQGDoECAAQQzoFCAAQgAQ6BAgAEB5Q2AZY8wxg3g5oAHAAeACAAawBiAHbB5IBAzAuN5gBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=KmaLYtHHHs_64-EPjauJ2AI&bih=937&biw=1920&hl=en
+
+# Alto 2018
+# https://www.google.lk/search?q=maruti+suzuki+alto+800+2015&tbm=isch&ved=2ahUKEwi5vZfOr6P4AhWr1HMBHaV5DdEQ2-cCegQIABAA&oq=maruti+suzuki+alto+800+2015&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgYIABAeEAgyBggAEB4QCFDVB1iCDGDNDWgAcAB4AIABlAGIAf0CkgEDMC4zmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=W3qjYvmjG6upz7sPpfO1iA0&bih=937&biw=1920
