@@ -6,14 +6,16 @@ import time
 
 
 #creating a directory to save images
-folder_name = 'images\\aqua 02'
+folder_name = 'images\\aqua 04'
 if not os.path.isdir(folder_name):
     os.makedirs(folder_name)
 
 def download_image(url, folder_name, num):
     # write image to file
-    
+    print(num)
+    print(url)
     reponse = requests.get(url, timeout=2)
+    print(num, "Downloaded")
     if reponse.status_code==200:
         with open(os.path.join(folder_name, str(num)+".jpg"), 'wb') as file:
             file.write(reponse.content)
@@ -22,7 +24,7 @@ def download_image(url, folder_name, num):
 chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
 driver = webdriver.Chrome(chromeDriverPath)
 
-search_URL = "https://www.google.lk/search?q=prius+c+2014&hl=en&tbm=isch&source=hp&biw=1920&bih=937&ei=4OSkYo_XLMXC3LUPqq-c6AI&iflsig=AJiK0e8AAAAAYqTy8PdTMeIfQ53xaKBJHonLkO1sfeAN&ved=0ahUKEwiPx5iriab4AhVFIbcAHaoXBy0Q4dUDCAY&uact=5&oq=prius+c+2014&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIGCAAQHhAFMgYIABAeEAgyBggAEB4QCDIGCAAQHhAIMgYIABAeEAgyBggAEB4QCDIGCAAQHhAIOggIABCABBCxAzoICAAQsQMQgwE6CwgAEIAEELEDEIMBUABY8RhgxRpoAHAAeACAAckBiAHvDpIBBjAuMTEuMZgBAKABAaoBC2d3cy13aXotaW1n&sclient=img"
+search_URL = "https://www.google.lk/search?q=toyota+aqua+2014&tbm=isch&ved=2ahUKEwidsL-kvKb4AhWqk9gFHfsPDJwQ2-cCegQIABAA&oq=toyota+aqua+2014&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgYIABAeEAgyBggAEB4QCDoECAAQQzoICAAQsQMQgwE6CAgAEIAEELEDOgcIABCxAxBDOgsIABCABBCxAxCDAVDYDVjWKWCBK2gAcAB4AIAB4AGIAa8RkgEGMC4xNi4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=TBqlYp3aNqqn4t4P-5-w4Ak&bih=937&biw=1920&hl=en"
 
 driver.get(search_URL)
 
