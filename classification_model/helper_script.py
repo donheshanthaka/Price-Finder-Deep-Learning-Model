@@ -142,3 +142,29 @@ def walk_through_dir(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path):
         print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
     
+
+def save_model(model, model_name):
+    """
+    Save a TensorFlow model in the local directory
+    
+    Args:
+        model: A TensorFlow model
+        model_name: String object of the name of the model to be saved (Will be used as the sub-directory)
+    """
+    location = "saved_models" + "\\" + model_name
+    model.save(location)
+    print(f"Model: {model_name} saved at {location}")
+
+
+def load_model(model_name):
+    """
+    Load and returns a TensorFlow model in the local directory
+    
+    Args: 
+        model_name: String object of the name of the model (sub-directory name)
+        
+    Returns:
+        The loaded TensorFlow model is returned
+    """
+    location = "saved_models" + "\\" + model_name
+    return tf.keras.models.load_model(location)
