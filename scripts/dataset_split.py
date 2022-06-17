@@ -4,7 +4,7 @@ import numpy as np
 
 import shutil
 
-rootdir = "D:\Projects\Python\Projects\Price Finder\web_scraper_for_image_collection\images\\final" # path of the original folder
+rootdir = "C:/Users/Don Hesha/Desktop/model_images" # path of the original folder
 
 classes = ["Alto 2015", "Hero Dash 2016", "Toyota Aqua 2014", "Wagon R Stingray 2018"]
 
