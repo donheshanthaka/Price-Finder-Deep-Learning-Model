@@ -286,3 +286,35 @@ def calculate_results(y_true, y_pred):
                   "recall": model_recall,
                   "f1": model_f1}
   return model_results
+
+
+import os
+import imghdr
+from PIL import Image
+
+def convert_images_rgb(path):
+    """
+    Converts images to RGB in the sub-directories of the given directory.
+    
+    Args:
+        path: String value to the image directory(folder)
+        
+    Returns:
+        None
+    """
+    # loop through the main directory (images folder)
+    for dir_name in os.listdir(path):
+        # Join subfolder and the main path
+        dir_path = path + "\\" + dir_name
+        # Loop through the subfolder  (test or train)
+        for folder_name in os.listdir(dir_path):
+            print(f"\nScanning folder: {dir_name}\{folder_name}\n")
+            image_folder_path = dir_path + "\\" + folder_name
+            images = os.listdir(image_folder_path)
+            # Loop through the individual images
+            for image in images:
+                img_dir = image_folder_path + "\\"+ image
+                im = Image.open(img_dir)
+                rgb_im = im.convert("RGB")
+                rgb_im.save(img_dir)
+                print(f"File Name: {image} Type: {imghdr.what(img_dir)}")
