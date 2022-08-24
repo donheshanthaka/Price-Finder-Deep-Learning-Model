@@ -3,3 +3,5 @@ classification_model/images/
 classification_model/custom_images/
 classification_model/saved_models/
 classification_model/custom_images_new
+*__pycache__
+*.ipynb_checkpoints
