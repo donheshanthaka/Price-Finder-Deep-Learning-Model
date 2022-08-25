@@ -4,4 +4,4 @@ classification_model/custom_images/
 classification_model/saved_models/
 classification_model/custom_images_new
 classification_model/__pycache__/
-classification_model/.ipynb_checkpoints/
+.ipynb_checkpoints
