@@ -39,6 +39,37 @@ def create_tensorboard_callback(dir_name, experiment_name):
 
 
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import random
+
+def view_random_image(target_dir, target_class):
+    """
+    Display a random image from the dataset
+
+    Args:
+        target_dir (str): Path to the target directory (eg: "images/test/")
+        target_class (str): The folder name of the class (eg: "Alto 2015")
+
+    Returns:
+        A random image from the given test directory and selected class
+    """
+    target_folder = target_dir + target_class
+    random_image = random.sample(os.listdir(target_folder), 1)
+    print(random_image)
+
+    # read in the image and plot it using matplotlib
+    img = mpimg.imread(target_folder + "/" + random_image[0])
+    plt.imshow(img)
+    plt.title(target_class)
+    plt.axis("off")
+
+    print("Image shape: ", img.shape)
+
+    return img
+
+
+
+import matplotlib.pyplot as plt
 def plot_loss_curves(history):
     """
     Returns seperate loss curves for training and validaion metrics.
