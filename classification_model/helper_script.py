@@ -126,6 +126,25 @@ def compare_history(original_history, new_history, initial_epochs=5):
     plt.title("Training and Validation Loss")
 
 
+def check_images(PATH):
+    """
+    Walks through the given image folder path and display the image metadata:
+    (image shape and data type)
+    
+    Args:
+        path: String value to the image directory(folder)
+        
+    Returns:
+        None
+    """
+    for root, dirs, files in os.walk(PATH):
+        for name in files:
+            img_dir = os.path.join(root, name)
+            img = tf.io.read_file(img_dir)
+            img = tf.io.decode_image(img)
+            print(f"File Name: {name} Shape: {img.shape} Image datatype: {img.dtype}")
+
+
 def walk_through_dir(dir_path):
     """
     Walks through dir_path returning its contents.
