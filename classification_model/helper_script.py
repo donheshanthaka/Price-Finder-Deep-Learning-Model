@@ -15,13 +15,18 @@ def convert_images_rgb(PATH):
         None
     """
     # loop through the main directory (images folder)
+    count = 0
+    print("Conversion started, this may take a while depending on the size of dataset!")
     for root, dirs, files in os.walk(PATH):
         for name in files:
+            count += 1
             img_dir = os.path.join(root, name)
             img = Image.open(img_dir)
             rgb_img = img.convert("RGB")
             rgb_img.save(img_dir)
-            print(f"File Name: {name} Type: {imghdr.what(img_dir)}")
+            # Uncomment the below line to display the details of each image after converion
+            # print(f"File Name: {name} Type: {imghdr.what(img_dir)}")
+    print(f"{count} images converted")
 
 
 
