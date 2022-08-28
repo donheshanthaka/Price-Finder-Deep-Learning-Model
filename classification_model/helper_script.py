@@ -151,7 +151,7 @@ def compare_history(original_history, new_history, initial_epochs=5):
 
 def check_images(PATH):
     """
-    Walks through the given image folder path and display the image metadata:
+    Walks through the given image folder path and display the image metadata of the 1st image in every sub-folder:
     (image shape and data type)
     
     Args:
@@ -161,7 +161,8 @@ def check_images(PATH):
         None
     """
     for root, dirs, files in os.walk(PATH):
-        for name in files:
+        # remove [:1] to display all the images, might consume too much notebook workspace
+        for name in files[:1]:
             img_dir = os.path.join(root, name)
             img = tf.io.read_file(img_dir)
             img = tf.io.decode_image(img)
