@@ -15,21 +15,13 @@ def convert_images_rgb(PATH):
         None
     """
     # loop through the main directory (images folder)
-    for dir_name in os.listdir(PATH):
-        # Join subfolder and the main path
-        dir_path = PATH + "\\" + dir_name
-        # Loop through the subfolder  (test or train)
-        for folder_name in os.listdir(dir_path):
-            print(f"\nScanning folder: {dir_name}\{folder_name}\n")
-            image_folder_path = dir_path + "\\" + folder_name
-            images = os.listdir(image_folder_path)
-            # Loop through the individual images
-            for image in images:
-                img_dir = image_folder_path + "\\"+ image
-                im = Image.open(img_dir)
-                rgb_im = im.convert("RGB")
-                rgb_im.save(img_dir)
-                print(f"File Name: {image} Type: {imghdr.what(img_dir)}")
+    for root, dirs, files in os.walk(PATH):
+        for name in files:
+            img_dir = os.path.join(root, name)
+            img = Image.open(img_dir)
+            rgb_img = img.convert("RGB")
+            rgb_img.save(img_dir)
+            print(f"File Name: {name} Type: {imghdr.what(img_dir)}")
 
 
 
