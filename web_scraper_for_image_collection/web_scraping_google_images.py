@@ -3,7 +3,9 @@ import requests
 from selenium import webdriver
 import os
 import time
+import chromedriver_autoinstaller
 
+chromedriver_autoinstaller.install() 
 
 #creating a directory to save images
 folder_name = 'images\\aqua 04'
@@ -21,8 +23,8 @@ def download_image(url, folder_name, num):
             file.write(reponse.content)
 
 
-chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
-driver = webdriver.Chrome(chromeDriverPath)
+# chromeDriverPath = "D:\Projects\Python\Web_Scraping_Selenium\chromedriver.exe"
+driver = webdriver.Chrome()
 
 search_URL = "https://www.google.lk/search?q=toyota+aqua+2014&tbm=isch&ved=2ahUKEwidsL-kvKb4AhWqk9gFHfsPDJwQ2-cCegQIABAA&oq=toyota+aqua+2014&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgYIABAeEAgyBggAEB4QCDoECAAQQzoICAAQsQMQgwE6CAgAEIAEELEDOgcIABCxAxBDOgsIABCABBCxAxCDAVDYDVjWKWCBK2gAcAB4AIAB4AGIAa8RkgEGMC4xNi4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=TBqlYp3aNqqn4t4P-5-w4Ak&bih=937&biw=1920&hl=en"
 
