@@ -1,37 +1,53 @@
 import os
-
 import numpy as np
-
 import shutil
 
-rootdir = "C:/Users/Don Hesha/Desktop/model_images" # path of the original folder
+RATIO = 0.5
 
-classes = ["Alto 2015", "Hero Dash 2016", "Toyota Aqua 2014", "Wagon R Stingray 2018"]
+print("\n ---- Dataset Split Started ---- \n")
 
-for i in classes:
+vehicle_list = os.listdir(os.path.join(os.getcwd(), "images"))
+images_path = os.path.join(os.getcwd(), "images")
+model_images_path = os.path.join(os.getcwd(), "classification_model/images")
 
-    os.makedirs(rootdir + '/train/' + i)
+if not os.path.isdir(model_images_path):
+    os.mkdir(model_images_path)
 
-    os.makedirs(rootdir + '/test/' + i)
+for vehicle in vehicle_list:
 
-    source = rootdir + '/' + i
+    print(f"Splitting the dataset of: {vehicle}")
 
-    allFileNames = os.listdir(source)
+    os.makedirs(model_images_path + '/train/' + vehicle)
+    os.makedirs(model_images_path + '/test/' + vehicle)
+    os.makedirs(model_images_path + '/validate/' + vehicle)
+
+    source = images_path + '/' + vehicle + '/duplicate_checked'
+
+    if os.path.exists(source):
+        allFileNames = os.listdir(source)
+    else:
+        continue
 
     np.random.shuffle(allFileNames)
 
-    test_ratio = 0.20
-
-    train_FileNames, test_FileNames = np.split(np.array(allFileNames),
-                                            [int(len(allFileNames) * (1 - test_ratio))])
+    train_FileNames, remaining_FileNames = np.split(np.array(allFileNames),
+                                            [int(len(allFileNames) * (1 - RATIO))])
 
     train_FileNames = [source+'/' + name for name in train_FileNames.tolist()]
-    test_FileNames = [source+'/' + name for name in test_FileNames.tolist()]
-
-    print(train_FileNames)
 
     for name in train_FileNames:
-        shutil.copy(name, rootdir + '/train/' + i)
+        shutil.copy(name, model_images_path + '/train/' + vehicle)
 
-    for name in test_FileNames:
-        shutil.copy(name, rootdir + '/test/' + i)
+    test_file_names, validate_file_names = np.split(np.array(remaining_FileNames),
+                                            [int(len(remaining_FileNames) * (1 - RATIO))])
+
+    test_file_names = [source+'/' + name for name in test_file_names.tolist()]
+    validate_file_names = [source+'/' + name for name in validate_file_names.tolist()]
+
+    for name in test_file_names:
+        shutil.copy(name, model_images_path + '/test/' + vehicle)
+
+    for name in validate_file_names:
+        shutil.copy(name, model_images_path + '/validate/' + vehicle)
+
+print("\n ---- Dataset Split Completed ---- ")
