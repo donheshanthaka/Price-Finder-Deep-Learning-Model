@@ -2,3 +2,4 @@ beautifulsoup4==4.11.1
 requests==2.27.1
 selenium==4.4.3
 chromedriver_autoinstaller==0.4.0
+difPy==2.4.4
