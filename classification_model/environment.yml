@@ -1,0 +1,9 @@
+# environment.yaml
+name: vehicle-image-cnn-env
+dependencies:
+  - python=3.9
+  - jupyter
+  - anaconda
+  - pip
+  - pip:
+    - -r requirements.txt
