@@ -3,36 +3,48 @@ import os
 import shutil
 from random import randint
 
-PATH = "D:\Projects\Python\Projects\Price Finder\web_scraper_for_image_collection\images\\aqua collection"
-TEMP_COLLECTION_PATH = PATH + "\collection"
-os.mkdir(TEMP_COLLECTION_PATH)
-DST_PATH = "D:\Projects\Python\Projects\Price Finder\web_scraper_for_image_collection\images\Toyota Aqua 2014"
-os.mkdir(DST_PATH)
+PARENT_DIR = os.getcwd()
+IMAGES_DIR = os.path.join(PARENT_DIR, "images")
 
-# print(os.listdir(PATH))
+temp_collection = []
 
-for dirname in os.listdir(PATH):
-    #print(PATH + "\\" + dirname)
-    dirname = PATH + "\\" + dirname
-    if os.path.isdir(dirname) and dirname != TEMP_COLLECTION_PATH:
-        for filename in (os.listdir(dirname)):
-            #print(DST_PATH + "/" + "0" + str(COUNT) + ".jpg")
-            #os.rename(dirname + "/" + filename, DST_PATH + "/" + "0" + str(COUNT) + ".jpg")
-            src = dirname + "\\" + filename
-            #dst =  DST_PATH + "/" + "0" + str(COUNT) + ".jpg"
-            dst = TEMP_COLLECTION_PATH + "\\" + str(randint(0, 999)) + filename
-            shutil.copy(src, dst)
-            print(dirname + "\\" + filename)
-
-
-search = dif(TEMP_COLLECTION_PATH, similarity="low",
-             show_progress=True, delete=True, silent_del=True)
+print("\n>> Started moving images to the temp folders")
+for root, dirs, files in os.walk(IMAGES_DIR):
+    for dir in dirs:
+        path = os.path.join(root, dir)
+        temp_collection_path = os.path.join(path, "temp")
+        for dirname in os.listdir(path):
+            dirname = path + "\\" + dirname
+            if os.path.isdir(dirname) and dirname != temp_collection_path:
+                for filename in (os.listdir(dirname)):
+                    src = dirname + "\\" + filename
+                    dst = temp_collection_path + "\\" + str(randint(0, 999)) + filename
+                    if not os.path.isdir(temp_collection_path):
+                        os.mkdir(temp_collection_path)
+                        temp_collection.append(temp_collection_path)
+                    shutil.copy(src, dst)
 
 
-COUNT = 1
-for filename in (os.listdir(TEMP_COLLECTION_PATH)):
-    print(DST_PATH + "\\" + "0" + str(COUNT) + ".jpg")
-    src = TEMP_COLLECTION_PATH + "/" + filename
-    dst =  DST_PATH + "\\" + "0" + str(COUNT) + ".jpg"
-    shutil.copy(src, dst)
-    COUNT += 1
+print("<< Done moving images to the temp folders\n")
+
+for collection in temp_collection:
+    print("\n>> Started removing duplicates in: ")
+    print(f"[{collection}]")
+    dif(collection, similarity="low", show_progress=True, delete=True, silent_del=True)
+    os.chdir(collection)
+    vehicle_folder_path = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+    os.chdir(vehicle_folder_path)
+    new_folder_path = os.path.join(vehicle_folder_path, "duplicate_checked")
+    os.mkdir(new_folder_path)
+
+    COUNT = 1
+    for filename in (os.listdir(collection)):
+        src = collection + "/" + filename
+        dst =  new_folder_path + "\\" + "0" + str(COUNT) + ".jpg"
+        shutil.copy(src, dst)
+        COUNT += 1
+    shutil.rmtree(collection)
+    print("<< Finished removing duplicates\n")
+    
+print("\n------ Images processed successfully ------")
+print("** Always go through the 'duplicate_checked' folders manually to remove unrelated images for respective vehicle models **\n")
