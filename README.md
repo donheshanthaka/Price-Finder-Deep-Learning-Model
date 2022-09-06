@@ -268,7 +268,7 @@ EfficientNets rely on AutoML and compound scaling to achieve superior performanc
 
 EfficientNets achieve state-of-the-art accuracy on ImageNet with an order of magnitude with better efficiency.
 
-![EfficientNet performance chart](https://user-images.githubusercontent.com/61963664/188676387-8d48bf4d-bd20-477f-b04a-83c33d9cc480.png)
+<img src="https://user-images.githubusercontent.com/61963664/188676387-8d48bf4d-bd20-477f-b04a-83c33d9cc480.png" alt="EfficientNet performance chart" width="50%" />
 
 ### Building the feature extraction model
 
@@ -283,25 +283,25 @@ After successful build on the model and fitting for 5 epochs with train and vali
 
 **Evaluting the model based on training and validation loss:**
 
-![model training and validation loss](https://user-images.githubusercontent.com/61963664/188678544-5120d8d2-edf7-4518-8d2e-ac0bd3ef52f0.png)
+![model training and validation loss](https://user-images.githubusercontent.com/61963664/188704934-d6e1df4e-d1ba-47f2-9088-ae0cf73ad015.png)
 
 **Evaluting the model based on training and validation accuracy:**
 
 
-![model training and validation accuracy](https://user-images.githubusercontent.com/61963664/188678716-3caa0d25-e668-439b-bdee-7bc9721113e0.png)
+![model training and validation accuracy](https://user-images.githubusercontent.com/61963664/188705011-a0030ac4-a242-40a3-a294-6ab028ecb28a.png)
 
 **Confusion Matrix:**
 
-![confusion matrix](https://user-images.githubusercontent.com/61963664/188680085-106f289a-bf92-4ac9-a079-9d94f88d65ff.png)
+![confusion matrix](https://user-images.githubusercontent.com/61963664/188705076-584c3be0-0e59-43f5-b04b-e948de794fed.png)
 
 It seems that the model do get confused with `Toyota Aqua 2014` and `Wagon R Stingray 2018` with `Alto 2015` on certain occasions. It suggest that more diverse images of `Toyota Aqua 2014` and `Wagon R Stingray 2018` are needed for the model to be trained more efficiently.
 
 
 **Visualizing predictions on test images:**
 
-![predictions on test images](https://user-images.githubusercontent.com/61963664/188680679-22a289b5-93c1-4935-956c-8b882a8a6ac0.png)
+![predictions on test images](https://user-images.githubusercontent.com/61963664/188705160-35af6cfc-59b4-4acf-b507-413b0078ba3c.png)
 
-<img src="https://raw.githubusercontent.com/tensorflow/tpu/master/models/official/efficientnet/g3doc/params.png" width="200" />
+
 ## Deployment
 
 This model is deployed using a flask API in google cloud platform that facilitates the image recognition capabilites of a mobile application that i have developed.
