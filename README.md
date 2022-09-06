@@ -277,3 +277,44 @@ Since the model is created using a jupyter notebook, all the relevant steps and 
 [The model develeopment notebook](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/classification_model/Price_Finder_AI_Model.ipynb)
 
 *For users who are following this project from the initial steps can start running the notebook and continue to work there if you have followed upto step 3 in setting up the anaconda virtual environment.*
+## Model Evaluation
+
+After successful build on the model and fitting for 5 epochs with train and validation datasets an accuracy of **97.26%** was achieved when being evaluated on the test dataset.
+
+**Evaluting the model based on training and validation loss:**
+
+![model training and validation loss](https://user-images.githubusercontent.com/61963664/188678544-5120d8d2-edf7-4518-8d2e-ac0bd3ef52f0.png)
+
+**Evaluting the model based on training and validation accuracy:**
+
+
+![model training and validation accuracy](https://user-images.githubusercontent.com/61963664/188678716-3caa0d25-e668-439b-bdee-7bc9721113e0.png)
+
+**Confusion Matrix:**
+
+![confusion matrix](https://user-images.githubusercontent.com/61963664/188680085-106f289a-bf92-4ac9-a079-9d94f88d65ff.png)
+
+It seems that the model do get confused with `Toyota Aqua 2014` and `Wagon R Stingray 2018` with `Alto 2015` on certain occasions. It suggest that more diverse images of `Toyota Aqua 2014` and `Wagon R Stingray 2018` are needed for the model to be trained more efficiently.
+
+
+**Visualizing predictions on test images:**
+
+![predictions on test images](https://user-images.githubusercontent.com/61963664/188680679-22a289b5-93c1-4935-956c-8b882a8a6ac0.png)
+
+<img src="https://raw.githubusercontent.com/tensorflow/tpu/master/models/official/efficientnet/g3doc/params.png" width="200" />
+## Deployment
+
+This model is deployed using a flask API in google cloud platform that facilitates the image recognition capabilites of a mobile application that i have developed.
+
+Feel free to checkout those projects as well mentioned on the links below:
+
+* [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API)
+* [Price Finder APP](https://github.com/donheshanthaka/Price-Finder-Flutter-APP)
+
+
+## Acknowledgements
+
+ - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
