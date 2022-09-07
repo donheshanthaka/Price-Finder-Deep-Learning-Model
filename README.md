@@ -6,9 +6,9 @@
 [![GitHub Repo Stars](https://img.shields.io/github/stars/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
 
-
 This project contains the development of a vehicle image classification model based on convolutional neural network (CNN). The model is capable of classifying vehicle models based on images.
 It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API) that is developed to facilitate the image recognition capabilities of the [Price Finder](https://github.com/donheshanthaka/Price-Finder-Flutter-APP) mobile application.
+
 ## 🧱 Tech Stack
 
 * Python - 3.8
@@ -21,6 +21,33 @@ It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Pri
 * requests - 2.27
 * selenium - 4.4
 * difPy - 2.4
+## 📚 Dataset
+
+The dataset used in this project was sourced from google images with the use of a custom web scraper which is explained in detail during the [Collect image data](#collect-image-data) section.
+
+For the current version of the model, the dataset consists of 4,138 images across 4 classes. The data is then split up into train, test and validation sets which each contains 4 sub directories of the 4 image classes.
+
+The above process is mentioned in detail in the [split dataset](#split-dataset) section.
+
+**Overview of the image data:**
+
+|     Class     |     Train     |      Test     |    Validate   |     Total     |
+| ------------- | :-------------: | :-------------: | :-------------: | :-------------: |
+| Alto 2015  | 1,252  | 139  | 140  | 1531  |
+| Hero Dash 2016  | 405  | 51  | 51  | 507  |
+| Toyota Aqua 2014  | 897  | 113  | 112  | 1,122  |
+| Wagon R Stingray 2018  | 782  | 98  | 98  | 978  |
+| **Grand Total**  | -  |  - |  -  | 4,138  |
+
+
+**Few example images from each class:**
+
+| Alto 2015 | Hero Dash 2016 | Toyota Aqua 2014 | Wagon R Stingray 2018 |
+| ---  |  --- | --- | --- |
+|![Alto 2015](https://user-images.githubusercontent.com/61963664/189027432-f2097048-98e4-4d99-bb48-51346430d5ce.jpg)| ![Hero Dash 2016](https://user-images.githubusercontent.com/61963664/189027704-d84a3b68-47b0-4f5c-8e41-1d7f95d3dfc0.jpg) | ![Toyota Aqua 2014](https://user-images.githubusercontent.com/61963664/189027885-bab0d3f1-0fb9-46ac-aced-399ee1e248db.jpg) | ![Wagon R Stingray 2018](https://user-images.githubusercontent.com/61963664/189027996-e0f54463-deab-44d2-8aad-d6da64b6be25.jpg) |
+
+
+
 ## ⚙ Setup Instructions
 
 The project is based on two main environments, one for the image data collection and another for developing the model.
@@ -39,7 +66,7 @@ The image data collection is handled through a python web scraper script and the
 * [Chrome](https://www.google.com/chrome/)
 
 
-*Make sure that you chrome is updated, if not the browser will close automatically during the start of the script*
+📌 *Make sure that you chrome is updated, if not the browser will close automatically during the start of the script*
 
 **Step 1:**
 
@@ -104,7 +131,7 @@ search_URL = "https://www.google.lk/search?q=Toyota+Aqua+2014&hl...."
 
 **Repeate the above steps until you have collected sufficient amount of images per vehicle (4-5 times) and do the same for all the vehicle models you want the cnn model to be trained on.**
 
-*Hint: Use different keywords on every search (Toyota Aqua 2014 Front / Toyota Aqua 2014 Japan / Prius C 2014)* > Prius C is another name used for Aqua in international markets.
+📌 *Hint: Use different keywords on every search (Toyota Aqua 2014 Front / Toyota Aqua 2014 Japan / Prius C 2014)* > Prius C is another name used for Aqua in international markets.
 
 
 ### 🛠 Preprocess downloaded images
@@ -277,10 +304,9 @@ This way all the underlying patterns remain in the rest of the layers and the re
 
 EfficientNets rely on AutoML and compound scaling to achieve superior performance without compromising resource efficiency. The AutoML Mobile framework has helped develop a mobile-size baseline network, EfficientNet-B0, which is then improved by the compound scaling method to obtain EfficientNet-B1 to B7.
 
-EfficientNets achieve state-of-the-art accuracy on ImageNet with an order of magnitude with better efficiency.
-
 <img src="https://user-images.githubusercontent.com/61963664/188676387-8d48bf4d-bd20-477f-b04a-83c33d9cc480.png" alt="EfficientNet performance chart" width="50%" />
 
+EfficientNets achieve state-of-the-art accuracy on ImageNet with an order of magnitude with better efficiency.
 
 ## ⚒ Development
 
