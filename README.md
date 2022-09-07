@@ -1,11 +1,17 @@
 
 # Vehicle Image Classification (Price Finder APP)
 
+[![Python Versions](https://img.shields.io/badge/python-3.8_|_3.9-blue?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
+
+
 This project contains the development of a vehicle image classification model based on convolutional neural network (CNN). The model is capable of classifying vehicle models based on images.
 It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API) that is developed to facilitate the image recognition capabilities of the [Price Finder](https://github.com/donheshanthaka/Price-Finder-Flutter-APP) mobile application.
 ## 🧱 Tech Stack
 
-* Python - 3.9
+* Python - 3.8
 * tensorflow - 2.9
 * numpy - 1.20
 * scikit_learn - 1.1
