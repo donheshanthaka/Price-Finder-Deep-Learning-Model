@@ -3,7 +3,7 @@
 
 This project contains the development of a vehicle image classification model based on convolutional neural network (CNN). The model is capable of classifying vehicle models based on images.
 It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API) that is developed to facilitate the image recognition capabilities of the [Price Finder](https://github.com/donheshanthaka/Price-Finder-Flutter-APP) mobile application.
-## Tech Stack
+## 🧱 Tech Stack
 
 * Python - 3.9
 * tensorflow - 2.9
@@ -15,10 +15,10 @@ It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Pri
 * requests - 2.27
 * selenium - 4.4
 * difPy - 2.4
-## Setup Instructions
+## ⚙ Setup Instructions
 
 The project is based on two main environments, one for the image data collection and another for developing the model.
-The image data collection is handled through a python web scraper script and the model is created using a jupyter notebook.
+The image data collection is handled through a python web scraper script and the model is developed on a jupyter notebook.
 
 **Clone the repository**
 
@@ -26,7 +26,7 @@ The image data collection is handled through a python web scraper script and the
   git clone https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model.git
 ```
 
-### Setup the environment to collect image data
+### ⛺ Setup the environment to collect image data
 
 *Prerequisites:*
 
@@ -45,10 +45,15 @@ The image data collection is handled through a python web scraper script and the
   python -m venv env
 ```
 
-* Activate the virtual environment
+* Navigate to the activation path
 
 ```bash
   cd env/Scripts
+```
+
+* Activate the virtual environment *(Run either one, not both)*
+
+```bash
   activate.bat //In CMD
   Activate.ps1 //In Powershell
 ```
@@ -61,14 +66,14 @@ The image data collection is handled through a python web scraper script and the
   pip install -r requirements.txt
 ```
 
-### Collect image data
+### 📸 Collect image data
 
 **Step 1:**
 
 *This script uses selenium webdriver module to scrape images from Google Images.*
 
 * Open the web_scraping_google_images.py script
-* You have to edit two feilds inside the script according to the preffered vehicle model.
+* You have to edit two fields inside the script according to the preferred vehicle model.
 
 `folder_name` = The name of the folder where downloaded images are saved (add iteration value at the end of the name).
 
@@ -76,7 +81,7 @@ The image data collection is handled through a python web scraper script and the
 
 *Example: (Vehicle model = Toyota Aqua 2014)*
 
-* Go to google images and search the vehicle: like [this](https://www.google.lk/search?q=Toyota+Aqua+2014&hl=en&tbm=isch&source=hp&biw=1920&bih=937&ei=bqQOY86EIeDC3LUPmM-x8Ac&iflsig=AJiK0e8AAAAAYw6yflZNGqMgg9_919n1rURVPTysRTjB&ved=0ahUKEwjO857k4u_5AhVgIbcAHZhnDH4Q4dUDCAY&uact=5&oq=Toyota+Aqua+2014&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgYIABAeEAgyBggAEB4QCFDWAVjWAWCPCGgAcAB4AIABiwGIAYsBkgEDMC4xmAEAoAECoAEBqgELZ3dzLXdpei1pbWewAQC4AQE&sclient=img)
+* Go to google images and search the vehicle: [example](https://www.google.lk/search?q=Toyota+Aqua+2014&hl=en&tbm=isch&source=hp&biw=1920&bih=937&ei=bqQOY86EIeDC3LUPmM-x8Ac&iflsig=AJiK0e8AAAAAYw6yflZNGqMgg9_919n1rURVPTysRTjB&ved=0ahUKEwjO857k4u_5AhVgIbcAHZhnDH4Q4dUDCAY&uact=5&oq=Toyota+Aqua+2014&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgYIABAeEAgyBggAEB4QCFDWAVjWAWCPCGgAcAB4AIABiwGIAYsBkgEDMC4xmAEAoAECoAEBqgELZ3dzLXdpei1pbWewAQC4AQE&sclient=img)
 * Use that url for `search_URL`
 
 ```
@@ -91,18 +96,18 @@ search_URL = "https://www.google.lk/search?q=Toyota+Aqua+2014&hl...."
 * The browser will scroll up automatically and start downloading each image.
 * After downloading the images, the browser will close itself.
 
-**Repeate the above steps until you have collected sufficient amount of images per vehicle (4-5 times) and do the same for all the vehicle models you want the cnn model to be trained on**
+**Repeate the above steps until you have collected sufficient amount of images per vehicle (4-5 times) and do the same for all the vehicle models you want the cnn model to be trained on.**
 
 *Hint: Use different keywords on every search (Toyota Aqua 2014 Front / Toyota Aqua 2014 Japan / Prius C 2014)* > Prius C is another name used for Aqua in international markets.
 
 
-### Preprocess downloaded images
+### 🛠 Preprocess downloaded images
 
 The `download_image_preprocessor.py` script is used to make image collections of each vehicle model by combining the subsets of each run such as (aqua 01, aqua 02 ...) as well as identify duplicate images downloaded when running the image collection script and delete them.
 
 **Step 01:**
 
-* Copy all the sub folders (aqua 01, aqua 02.. ) into a parent folder *eg: `aqua collection`*
+* Copy all the sub folders (aqua 01, aqua 02.. ) into a parent folder. *E.g. -> `aqua collection`*
 * Repeat the above step for all the vehicle image sets collected.
 
 An example of the directory structure of images folder:
@@ -140,7 +145,7 @@ images <- top level folder
 * Run the `download_image_preprocessor.py` script.
 * It will create a `duplicate_checked` folder inside every vehicle model collection folder which contain the processed images after deleting the duplicates, however it is **Highly recommended to manually check that folder and delete unwanted images that are downloaded from the webscraper since it is quite normal for the google images to contain unrelated images with every search and the webscraper has no intelligence in identifying images before download, therefore it will download all the results.**
 
-### Split dataset
+### ⚖ Split dataset
 
 The image dataset will be divided among three sections with the below mentioned split ratios.
 
@@ -200,7 +205,7 @@ images <- top level folder
 │       │   ...
 ```
 
-### Setup the anaconda virtual environment
+### 🐍 Setup the anaconda virtual environment
 
 *Prerequisites:*
 
@@ -241,7 +246,7 @@ If you have an Nvidia GPU then follow this amazing guide mentioned below by [Jef
 ```bash
     jupyter notebook
 ```
-## Convolutional Neural Network (CNN) model development
+## 🧠 Convolutional Neural Network (CNN)
 
 The model in this project is developed using transfer learning method known as feature extraction. A pre-trained model is used as the starting point to the current model.
 
@@ -270,22 +275,25 @@ EfficientNets achieve state-of-the-art accuracy on ImageNet with an order of mag
 
 <img src="https://user-images.githubusercontent.com/61963664/188676387-8d48bf4d-bd20-477f-b04a-83c33d9cc480.png" alt="EfficientNet performance chart" width="50%" />
 
-### Building the feature extraction model
 
-Since the model is created using a jupyter notebook, all the relevant steps and decisions made are mentioned in the notebook itself, therefore it will not be repeated in this documentaion. However since the notebook is available in github it can be viewed without running the project through an anaconda instance.
+## ⚒ Development
+
+**Building the feature extraction model:**
+
+Since the model is created using a jupyter notebook, all the relevant steps and decisions made are mentioned in the notebook itself, therefore it will not be repeated in this documentation. However, since the notebook is available in github it can be viewed without running the project through an anaconda instance.
 
 [The model develeopment notebook](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/classification_model/Price_Finder_AI_Model.ipynb)
 
-*For users who are following this project from the initial steps can start running the notebook and continue to work there if you have followed upto step 3 in setting up the anaconda virtual environment.*
-## Model Evaluation
+*For users who are following this project from the initial steps can start running the notebook and continue to work there if you have followed up to step 3 in setting up the anaconda virtual environment.*
+## 📈 Evaluation
 
 After successful build on the model and fitting for 5 epochs with train and validation datasets an accuracy of **97.26%** was achieved when being evaluated on the test dataset.
 
-**Evaluting the model based on training and validation loss:**
+**Evaluating the model based on training and validation loss:**
 
 ![model training and validation loss](https://user-images.githubusercontent.com/61963664/188704934-d6e1df4e-d1ba-47f2-9088-ae0cf73ad015.png)
 
-**Evaluting the model based on training and validation accuracy:**
+**Evaluating the model based on training and validation accuracy:**
 
 
 ![model training and validation accuracy](https://user-images.githubusercontent.com/61963664/188705011-a0030ac4-a242-40a3-a294-6ab028ecb28a.png)
@@ -302,19 +310,12 @@ It seems that the model do get confused with `Toyota Aqua 2014` and `Wagon R Sti
 ![predictions on test images](https://user-images.githubusercontent.com/61963664/188705160-35af6cfc-59b4-4acf-b507-413b0078ba3c.png)
 
 
-## Deployment
+## 🚀 Deployment
 
-This model is deployed using a flask API in google cloud platform that facilitates the image recognition capabilites of a mobile application that i have developed.
+This model is deployed using a flask API in google cloud platform that facilitates the image recognition capabilities of a mobile application that I have developed.
 
 Feel free to checkout those projects as well mentioned on the links below:
 
 * [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API)
 * [Price Finder APP](https://github.com/donheshanthaka/Price-Finder-Flutter-APP)
-
-
-## Acknowledgements
-
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
