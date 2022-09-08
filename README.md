@@ -47,7 +47,7 @@ The above process is mentioned in detail in the [split dataset](#split-dataset) 
 |![Alto 2015](https://user-images.githubusercontent.com/61963664/189027432-f2097048-98e4-4d99-bb48-51346430d5ce.jpg)| ![Hero Dash 2016](https://user-images.githubusercontent.com/61963664/189027704-d84a3b68-47b0-4f5c-8e41-1d7f95d3dfc0.jpg) | ![Toyota Aqua 2014](https://user-images.githubusercontent.com/61963664/189027885-bab0d3f1-0fb9-46ac-aced-399ee1e248db.jpg) | ![Wagon R Stingray 2018](https://user-images.githubusercontent.com/61963664/189027996-e0f54463-deab-44d2-8aad-d6da64b6be25.jpg) |
 
 
-
+📍 *Note: The images used in the current project are not shared with the repository since i do not own the rights to the images downloaded through google images. However, that would not be an issue for anyone following this project since the webscraper script and instructions are given.*
 ## ⚙ Setup Instructions
 
 The project is based on two main environments, one for the image data collection and another for developing the model.
