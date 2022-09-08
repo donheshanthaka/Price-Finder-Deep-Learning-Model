@@ -23,11 +23,11 @@ It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Pri
 * difPy - 2.4
 ## 📚 Dataset
 
-The dataset used in this project was sourced from google images with the use of a custom web scraper which is explained in detail during the [Collect image data](#collect-image-data) section.
+The dataset used in this project was sourced from google images with the use of a custom web scraper which is explained in detail during the [Collect image data](#-collect-image-data) section.
 
 For the current version of the model, the dataset consists of 4,138 images across 4 classes. The data is then split up into train, test and validation sets which each contains 4 sub directories of the 4 image classes.
 
-The above process is mentioned in detail in the [split dataset](#split-dataset) section.
+The above process is mentioned in detail in the [split dataset](#-split-dataset) section.
 
 **Overview of the image data:**
 
