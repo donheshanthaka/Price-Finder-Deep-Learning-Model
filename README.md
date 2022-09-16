@@ -2,6 +2,7 @@
 # Vehicle Image Classification (Price Finder APP)
 
 [![Python Versions](https://img.shields.io/badge/python-3.8_|_3.9-blue?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/donheshanthaka/Price-Finder-Deep-Learning-Model?color=green&style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/releases/tag/v1.0.0)
 [![GitHub License](https://img.shields.io/github/license/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
 [![GitHub Repo Stars](https://img.shields.io/github/stars/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/donheshanthaka/Price-Finder-Deep-Learning-Model?style=for-the-badge)](https://github.com/donheshanthaka/Price-Finder-Deep-Learning-Model/blob/main/LICENSE)
