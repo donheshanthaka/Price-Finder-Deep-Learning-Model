@@ -10,18 +10,31 @@
 This project contains the development of a vehicle image classification model based on convolutional neural network (CNN). The model is capable of classifying vehicle models based on images.
 It is the AI model used in the [Flask API](https://github.com/donheshanthaka/Price-Finder-Flask-API) that is developed to facilitate the image recognition capabilities of the [Price Finder](https://github.com/donheshanthaka/Price-Finder-Flutter-APP) mobile application.
 
+
+## 🔬 Overview of the tasks achieved within this project
+
+* Achieved an accuracy of **97.26%** when being evaluated on the test dataset across four classes.
+* Use of a **custom dataset** to train and test the CNN model (No Kaggle datasets were used).
+* Implementation of a **selenium-based web scraper** to gather images for the custom dataset.
+* Automation of **image preprocessing** such as **duplicate image removal** and **test-train-validation split** using python.
+* Accurate model evaluations using **training and validation loss / accuracy graphs** and **confusion matrix** using **Matplotlib** and **NumPy**.
+* **Modular project structure** that separates the dataset collection and model development for ease in future scalability.
+* **Detailed in depth documentation** on both dataset collection and model creation which covers the entire workflow structure from **project set-up to saving the trained model**.
+* Model creation using **Jupyter Notebook** to provide ease in **project reusability** for further development as well as **enhanced interactivity** between testing and training compared to other forms of IDEs.
+
 ## 🧱 Tech Stack
 
 * Python - 3.8
-* tensorflow - 2.9
-* numpy - 1.20
-* scikit_learn - 1.1
-* matplotlib - 3.4
+* TensorFlow - 2.9
+* NumPy - 1.20
+* Scikit-learn - 1.1
+* Matplotlib - 3.4
 * Pillow - 9.2
-* beautifulsoup4 - 4.11
-* requests - 2.27
-* selenium - 4.4
-* difPy - 2.4
+* BeautifulSoup4 - 4.11
+* Requests - 2.27
+* Selenium - 4.4
+* DifPy - 2.4
+
 ## 📚 Dataset
 
 The dataset used in this project was sourced from google images with the use of a custom web scraper which is explained in detail during the [Collect image data](#-collect-image-data) section.
